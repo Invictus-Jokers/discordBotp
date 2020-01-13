@@ -1,8 +1,14 @@
 {
-    "name": "practice",
-    "version": "0.0.1",
-    "description": "My First Discord Bot",
-    "main": "bot.js",
-    "author": "Devansh Shah | Paul Sin",
-    "dependencies": {}
+  "name": "practice",
+  "version": "0.0.1",
+  "description": "My First Discord Bot",
+  "main": "bot.js",
+  "author": "Devansh Shah | Paul Sin",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.1.0"
+  }
 }
