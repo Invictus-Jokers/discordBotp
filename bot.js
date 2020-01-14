@@ -1,7 +1,7 @@
 require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const TOKEN = 'bottoken here';
+const TOKEN = 'token here';
 
 bot.login(TOKEN);
 
@@ -14,12 +14,18 @@ bot.on('message', msg => {
         msg.reply('pong');
         msg.channel.send('pong');
 
-    } else if (msg.content.startsWith('!kick')) {
+    } if (msg.content.startsWith('!kick')) {
         if (msg.mentions.users.size) {
             const taggedUser = msg.mentions.users.first();
             msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
         } else {
             msg.reply('Please tag a valid user!');
         }
+    } if (msg.content === '!flip'){
+        let random  = Math.round(Math.random());
+        if(random === 0)
+            msg.channel.send("tail", {files: ["img/tail.png"]});
+        else
+            msg.channel.send("head", {files: ["img/head.png"]});
     }
 });
