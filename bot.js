@@ -9,6 +9,14 @@ bot.on('ready', () => {
     console.info(`Logged in as ${bot.user.tag}!`);
 });
 
+let flip = (msg)=>{
+    let random  = Math.round(Math.random());
+    if(random === 0)
+            msg.channel.send("tail", {files: ["img/tail.png"]});
+        else
+            msg.channel.send("head", {files: ["img/head.png"]});
+}
+
 bot.on('message', msg => {
     if (msg.content === 'ping') {
         msg.reply('pong');
@@ -22,10 +30,7 @@ bot.on('message', msg => {
             msg.reply('Please tag a valid user!');
         }
     } if (msg.content === '!flip'){
-        let random  = Math.round(Math.random());
-        if(random === 0)
-            msg.channel.send("tail", {files: ["img/tail.png"]});
-        else
-            msg.channel.send("head", {files: ["img/head.png"]});
+        
+        flip(msg);
     }
 });
