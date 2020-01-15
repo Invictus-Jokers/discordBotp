@@ -31,13 +31,19 @@ let flip = (msg)=>{
             if(random === 0) returnA.push(tail);
             else returnA.push(head);
         }
-        msg.channel.send( {files: returnA});
+
+
+        mergeImg(returnA).then((img) => {    // Save image as file
+        img.write('out.png', () => console.log('done'));
+    });
+        msg.channel.send( {files: ['out.png']});
       //  console.log(returnA);
         
   
     } else {
         msg.channel.send("invalid message");
     }
+
 
 }
 
