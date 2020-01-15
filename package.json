@@ -1,6 +1,6 @@
 {
   "name": "practice",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "My First Discord Bot",
   "main": "bot.js",
   "author": "Devansh Shah | Paul Sin",
@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "discord.js": "^11.5.1",
-    "dotenv": "^8.1.0"
+    "dotenv": "^8.1.0",
+    "merge-img": "^2.1.3"
+
   }
 }
