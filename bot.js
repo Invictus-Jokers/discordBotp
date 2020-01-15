@@ -46,15 +46,18 @@ bot.on('message', msg => {
         msg.reply('pong');
         msg.channel.send('pong');
 
-    } if (msg.content.startsWith('!kick')) {
+    } 
+    
+    if (msg.content.startsWith('!kick')) {
         if (msg.mentions.users.size) {
             const taggedUser = msg.mentions.users.first();
             msg.channel.send(`You wanted to kick: ${taggedUser.username}`);
         } else {
             msg.reply('Please tag a valid user!');
         }
-    } if (msg.content.startsWith('!flip')){
-        
+    } 
+    
+    if (msg.content.startsWith('!flip')){        
         flip(msg);
     }
     
@@ -62,4 +65,10 @@ bot.on('message', msg => {
         msg.reply('Hello! Welcome to the Seneca Practice Bot');
         msg.channel.send('Hello! Welcome to the Seneca Practice Bot');
     }
+
+    if (msg.content.toLowerCase() == "details") {
+        msg.channel.send(`This bot is your everyday discord-playmate.`)
+    }
+
+
 });
