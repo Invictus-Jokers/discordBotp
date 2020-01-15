@@ -33,4 +33,9 @@ bot.on('message', msg => {
         
         flip(msg);
     }
+    
+    if (msg.content.toLowerCase() == 'hello' || msg.content.toLowerCase() === 'hi') {
+        msg.reply('Hello');
+        msg.channel.send('Hello');
+    }
 });
