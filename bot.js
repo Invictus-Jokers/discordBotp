@@ -10,11 +10,35 @@ bot.on('ready', () => {
 });
 
 let flip = (msg)=>{
-    let random  = Math.round(Math.random());
-    if(random === 0)
-            msg.channel.send("tail", {files: ["img/tail.png"]});
-        else
-            msg.channel.send("head", {files: ["img/head.png"]});
+    let msgArr = msg.content.split(" ");
+    if(msgArr.length <= 2){
+        let multiple =  Number(msgArr[1]);
+        if(msgArr.length === 1)
+        {
+            multiple = 1;
+        }
+        let tail = "img/tail.png";
+        let head = "img/head.png";
+        let returnA = [];
+        if(multiple === NaN)
+        {
+            multiple = 1;
+        }
+        console.log(multiple);
+        for(let i = 0 ; i< multiple; i++)
+        {
+            let random  = Math.round(Math.random());
+            if(random === 0) returnA.push(tail);
+            else returnA.push(head);
+        }
+        msg.channel.send( {files: returnA});
+      //  console.log(returnA);
+        
+  
+    } else {
+        msg.channel.send("invalid message");
+    }
+
 }
 
 bot.on('message', msg => {
@@ -29,7 +53,7 @@ bot.on('message', msg => {
         } else {
             msg.reply('Please tag a valid user!');
         }
-    } if (msg.content === '!flip'){
+    } if (msg.content.startsWith('!flip')){
         
         flip(msg);
     }
