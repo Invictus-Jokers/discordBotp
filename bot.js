@@ -57,4 +57,9 @@ bot.on('message', msg => {
         
         flip(msg);
     }
+    
+    if (msg.content.toLowerCase() == 'hello' || msg.content.toLowerCase() === 'hi') {
+        msg.reply('Hello! Welcome to the Seneca Practice Bot');
+        msg.channel.send('Hello! Welcome to the Seneca Practice Bot');
+    }
 });
