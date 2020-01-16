@@ -33,6 +33,12 @@ let flip = async (msg) => {
 
 
         }
+<<<<<<< HEAD
+        msg.channel.send( {files: returnA});
+      //  console.log(returnA);
+        
+  
+=======
 
 
         let out = await mergeImg(returnA, { Canvas: Canvas })
@@ -50,10 +56,14 @@ let flip = async (msg) => {
         //  console.log(returnA);
 
 
+>>>>>>> 2d3f8e874878d2f68c1eacb1e19dafdca4875a40
     } else {
         send = "invalid message";
     }
+<<<<<<< HEAD
+=======
     msg.channel.send(send);
+>>>>>>> 2d3f8e874878d2f68c1eacb1e19dafdca4875a40
 
 }
 
@@ -81,9 +91,16 @@ bot.on('message', msg => {
         msg.channel.send('Hello! Welcome to the Seneca Practice Bot');
     }
 
-    if (msg.content.toLowerCase() == "details") {
-        msg.channel.send(`This bot is your everyday discord-playmate.`)
+    if (msg.content.toLowerCase() == "!details") {
+        msg.channel.send(`This bot is your everything.`)
     }
 
+    if (msg.content == '!roll') {
+        var roll =(Math.floor(Math.random()*50)+1);
+        if (roll < 5)
+            msg.channel.send(`You Won! Here's a cookie`);
+        else 
+            msg.channel.send(`Sorry, It's just not your day yet.`);
+    }
 
 });
