@@ -1,10 +1,12 @@
 const mergeImg = require('merge-img');
-require('dotenv').config();
+const dotenv =require('dotenv');
 const Discord = require('discord.js');
 const Canvas = require('canvas');
 const fs = require('fs');
 const bot = new Discord.Client();
-const TOKEN = 'token here';
+dotenv.config('.gitignore/.env');
+console.log(process.env.TOKEN);
+const TOKEN = process.env.TOKEN;
 
 bot.login(TOKEN);
 
