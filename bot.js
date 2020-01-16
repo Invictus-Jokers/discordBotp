@@ -2,6 +2,7 @@ const mergeImg = require('merge-img');
 require('dotenv').config();
 const Discord = require('discord.js');
 const Canvas = require('canvas');
+const fs = require('fs');
 const bot = new Discord.Client();
 const TOKEN = 'token here';
 
@@ -13,7 +14,7 @@ bot.on('ready', () => {
 
 let flip = async (msg) => {
     let msgArr = msg.content.split(" ");
-    let send;
+    
     if (msgArr.length <= 2) {
         let multiple = Number(msgArr[1]);
         if (msgArr.length === 1) {
@@ -25,7 +26,7 @@ let flip = async (msg) => {
         if (multiple === NaN) {
             multiple = 1;
         }
-        console.log(multiple);
+        // console.log(multiple);
         for (let i = 0; i < multiple; i++) {
             let random = Math.round(Math.random());
             if (random === 0) returnA.push(tail);
@@ -33,41 +34,35 @@ let flip = async (msg) => {
 
 
         }
-<<<<<<< HEAD
-        msg.channel.send( {files: returnA});
-      //  console.log(returnA);
-        
-  
-=======
-
-
-        let out = await mergeImg(returnA, { Canvas: Canvas })
-        // Save image as file
-        console.log(out);
-       await out.write('img/out.png', () => console.log('done'))
-
-
-        send = { files: ['img/out.png'] };
-
-
-
-
-
+        //  msg.channel.send( {files: returnA});
         //  console.log(returnA);
 
 
->>>>>>> 2d3f8e874878d2f68c1eacb1e19dafdca4875a40
-    } else {
-        send = "invalid message";
-    }
-<<<<<<< HEAD
-=======
-    msg.channel.send(send);
->>>>>>> 2d3f8e874878d2f68c1eacb1e19dafdca4875a40
 
+
+
+        // Save image as file
+
+        let out = await mergeImg(returnA, { Canvas: Canvas });
+
+        out.write('img/out.png', () => {
+            console.log('done')
+            msg.channel.send({ files: ['img/out.png'] });
+
+        });
+
+
+
+    }
+    else{
+    msg.channel.send("invalid message");
+    
+    }
 }
 
-bot.on('message', msg => {
+
+
+bot.on('message', async (msg) => {
     if (msg.content === 'ping') {
         msg.reply('pong');
         msg.channel.send('pong');
@@ -84,7 +79,10 @@ bot.on('message', msg => {
     }
 
     if (msg.content.startsWith('!flip')) {
-        flip(msg);
+
+
+
+        msg.channel.send(await flip(msg));
     }
 
     if (msg.content.toLowerCase() == 'hello' || msg.content.toLowerCase() === 'hi') {
@@ -96,10 +94,10 @@ bot.on('message', msg => {
     }
 
     if (msg.content == '!roll') {
-        var roll =(Math.floor(Math.random()*50)+1);
+        var roll = (Math.floor(Math.random() * 50) + 1);
         if (roll < 5)
             msg.channel.send(`You Won! Here's a cookie`);
-        else 
+        else
             msg.channel.send(`Sorry, It's just not your day yet.`);
     }
 
