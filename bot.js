@@ -38,7 +38,7 @@ let flip = async (msg) => {
         let out = await mergeImg(returnA, { Canvas: Canvas })
         // Save image as file
         console.log(out);
-        out.write('img/out.png', () => console.log('done'))
+       await out.write('img/out.png', () => console.log('done'))
 
 
         send = { files: ['img/out.png'] };
