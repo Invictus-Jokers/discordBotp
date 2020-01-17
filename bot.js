@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mergeImg = require('merge-img');
 const Discord = require('discord.js');
 const Canvas = require('canvas');
