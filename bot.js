@@ -62,7 +62,7 @@ let highlow = (msg)=>{
         msg.channel.send(`The number was ${x} You win a cookie!~`);
     }
     else{
-        msg.channel.send(`Sorry, It's just not your day yet.`);
+        msg.channel.send(`Sorry, It's just not your day yet. The number was ${x}`);
     };
 };
 
@@ -109,5 +109,4 @@ bot.on('message', async (msg) => {
     }
 
 });
-
 
